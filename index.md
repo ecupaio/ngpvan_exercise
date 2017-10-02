@@ -1,6 +1,9 @@
 ---
-title: Home Page
+title: Tags
 layout: index
+icon: glyphicons-tags
+heading-top: Admin
+heading-bottom: Tags
 ---
 
-home page content
+{% include tags.html %}

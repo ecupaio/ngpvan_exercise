@@ -115,7 +115,6 @@
 	background-color: $button_bg;
 	color: $button_txt;
 	white-space: normal;
-	font-family: $header_font;
 	&:hover, &:focus {
 		background-image: none;
 		background-color: $hover_button_bg;
@@ -131,9 +130,10 @@
 	input,textarea {
 		&:not([type=submit]):not([type=file]):not([type=radio]) {
 			width: 100%;
-			padding: 0.5em;
-			-webkit-appearance: none;
-			border: 0;
+			-webkit-appearence: none;
+			border-radius: 4px;
+			border: 1px solid $brand_dk_gray;
+
 		}
 		&:active, &:focus {
 			outline: 0;

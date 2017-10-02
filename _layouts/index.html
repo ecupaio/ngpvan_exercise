@@ -24,40 +24,38 @@
     <meta name="twitter:title" content="{{ site.title }}">
     <meta name="twitter:description" content="{{ site.description }}">
     <meta name="twitter:image" content="{{ site.meta_img }}">
-    <!-- Pure CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap-grid.min.css" />
+    <!-- Progress UI CSS -->
+    <link href="https://progress.ngpvan.com/stylesheets/progress.min.css" rel="stylesheet" type="text/css">
     <!-- CSS -->
     {% include base.html %}
     <link href="{{ base }}/css/style.css" rel="stylesheet" type="text/css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Favicon -->
-    <link rel="icon" href="https://s3.amazonaws.com/frontend-assets.dnc.org/images/D-circle-logo-favicon.png">
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <!-- Twitter Popup -->
     <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 </head>
-
 <body>
+    
     <div id="wrapper">
         <div id="header">
-            <h1>{{ site.title }}</h1>
         </div>
-        <div id="main">
-              {% include form.html form-url="//my.democrats.org/page/sapi/bsd-api-test" %}
-              {% include social_share.html %}
-        </div>
-    </div>
-    <div id="footer">
-        <div class="copyright-footer">
-            <div class="copyright-text">
-                <p>Paid for by the Democratic National Committee (202) 863‑8000.</p>
-                <p>This communication is not authorized by any candidate or candidate's committee.</p>
+        <div id="main" class="{{ page.title | handleize }}">
+            <div class="page-heading">
+                <div class="heading-logo">
+                    <span class="glyphicons {{ page.icon }}" aria-hidden="true"></span>
+                </div>
+                <div class="heading-label">
+                    <div class="label-top">{{ page.label-top }}</div>
+                    <div class="label-bottom">{{ page.label-bottom }}</div>
+                </div>
             </div>
+            {% include tags.html %}
         </div>
-        <p><a href="https://www.democrats.org/more/privacy-policy" target="_blank">Privacy Policy</a></p>
     </div>
     <!-- Scripts -->
     <script src="{{ base }}/site_functions.js"></script>

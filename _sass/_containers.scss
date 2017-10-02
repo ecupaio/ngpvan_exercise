@@ -31,12 +31,7 @@ body {
 	-ms-flex-flow: row wrap;
 	flex-flow: row wrap;
 }
-.pure-g [class *= "pure-u"] {
-	font-family: $body-font;
-}
-.pure-g {
-	font-family: $body-font;
-}
+
 //BSD Form
 @include form_colors;
 .signup-form {

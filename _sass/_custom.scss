@@ -1,24 +1,25 @@
 //Custom Styles
 //Brand Colors
-$brand_lt_blue: #00AEF3;
-$brand_dk_blue: #0F2446;
+$brand_lt_blue: #228ae6;
+$brand_dk_blue: #1c7cd6;
 $brand_alt_blue: #00589C;
 $brand_white: #fff;
 $brand_red: #E31818;
 $brand_dk_red: #841618;
 $brand_yellow: #FFDD00;
 $brand_orange: #F15822;
-$brand_gray: #F6F6F6;
-$brand_black: #000;
+$brand_gray: #f8f9fa;
+$brand_dk_gray: #ced4da;
+$brand_black: #495057;
 $brand_teal: #00a87d;
 $brand_green: #29763B;
 $brand_purple: #A4288C;
 $brand_dk_purple: #4D2073;
 //Body and Heading text Colors
-$body_txt: $brand_dk_blue;
+$body_txt: $brand_black;
 $body_link: $brand_lt_blue;
 $body_link_hover: $brand_dk_blue;
-$heading: $brand_dk_blue;
+$heading: $brand_black;
 //Footer Colors
 $footer_bg: $brand_dk_blue;
 $footer_txt: $brand_white;
@@ -38,9 +39,10 @@ $form_txt: $brand_black;
 $form_btn_bg: $brand_dk_blue;
 $form_btn_txt: $brand_white;
 //Mobile Breakpoints
-$size-large: 1024px;
-$size-medium: 768px;
-$size-small: 568px;
+$size-large: 1365px;
+$size-medium: 1024px;
+$size-small: 728px;
+$size-x-small: 455px;
 //Padding for Sections and Grids
 $grid-gutters: 0.5em 1em;
 $header-padding: 1em;
@@ -55,3 +57,88 @@ $transition_type: all .7s ease;
 @include bodyPadding($body-padding);
 @include footerPadding($footer-padding);
 //Start Theme Customizations below:
+@include input;
+#header {
+    height: 1em;
+}
+
+#wrapper {
+    background: $brand_gray;
+}
+#main {
+    .section {
+        background: $brand_white;
+    }
+    #filters {
+        .filter-grid {
+            .btn-col {
+                text-align: right;
+                .btn {
+                    display: inline-block;
+                }
+            }
+            .tag-list {
+                display: none;
+                position: absolute;
+                z-index: 10;
+                background: $brand_white;
+                width: 100%;
+                padding: 1em;
+                @include box-shadow;
+                &.active{
+                    display: block;
+                }
+                .filter-item {
+                    display: none;
+                    &.active {
+                        display: block;
+                        padding: 0.5em 0;
+                        &:hover {
+                            background: $brand_gray;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #results {
+        .results-grid {
+            .row {
+                border-bottom: 3px solid $brand_gray;
+                padding: 1em;
+                background-color: $brand_white;
+                &.head-row {
+                    color: $brand_lt_blue;
+                    font-weight: bold;
+                    @include bp-medium {
+                            display: none;
+                    }
+                }
+                @include transition;
+                &:hover:not(.head-row) {
+
+                    background-color: $brand_gray;
+                }
+
+
+            }
+            .tag-row {
+                opacity: 0;
+                visibility: hidden;
+                padding: 0;
+                height: 0;
+                @include custom_transition(opacity 0.7s ease);
+                &.active {
+                    visibility: visible;
+                    opacity: 1;
+                    height: auto;
+                    padding: 1em;
+                }
+                .tag-name {
+                    color: $brand_lt_blue;
+                }
+            }
+        }
+
+    }
+}
