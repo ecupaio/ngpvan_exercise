@@ -1,0 +1,211 @@
+//Default Transition
+@mixin transition {
+	transition: $transition_type;
+	-webkit-transition: $transition_type;
+	-moz-transition: $transition_type;
+	-o-transition: $transition_type;
+}
+@mixin custom_transition($transition...) {
+	transition: $transition;
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-o-transition: $transition;
+}
+//Link Underline
+@mixin hover_underline {
+	&:after {
+	    content: '';
+	    height: 3px;
+	    position: absolute;
+	    bottom: 0.5em;
+	    left: 0;
+	    width: 100%;
+	    transform: scaleX(0);
+	    background-color: $body_link;
+	    @include custom_transition(all 0.5s ease);
+	    -webkit-transform-origin: center;
+	    -ms-transform-origin: center;
+	    transform-origin: center;
+	}
+
+	&:hover, &.active {
+	    cursor: pointer;
+	    color: $body_link;
+	    &:after {
+	        transform: scaleX(1);
+	    }
+	}
+}
+
+//Theme Color Mixins
+@mixin header_colors {
+	background-color: $header_bg;
+	color: $header_txt;
+}
+@mixin footer_colors {
+	background: $footer_bg;
+	color: $footer_txt;
+}
+//Form Colors
+@mixin form_colors {
+	.signup-form {
+		background: $form_bg;
+
+			color: $form_txt;
+			.pure-button {
+				background: $form_btn_bg;
+				color:  $form_btn_txt;
+
+				&:hover {
+					@include transition;
+					background: $form_btn_txt;
+					color: $form_btn_bg;
+				}
+			}
+
+	}
+}
+//Headings
+@mixin headings($from: 1, $to: 6){
+    @for $i from $from through $to{
+      h#{$i}{
+        @content
+      }
+    }
+}
+//Border Box
+@mixin border-box {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+//Box Shadow
+@mixin box-shadow {
+	-webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.5);
+    -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.5);
+    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.5);
+}
+//Rounded Social Share Buttons
+@mixin social_share_rounded {
+  i {
+    background-color: $button_bg;
+    border-radius: 2em;
+    color: $button_txt;
+    display: inline-block;
+    height: 2em;
+    line-height: 2em;
+    width: 2em;
+    text-align: center;
+  }
+  .fa-twitter {
+    margin-left: 1em;
+  }
+	a.fb-link:hover, a.fb-link:active, a.fb-link:focus {
+	  text-decoration: none;
+	}
+  i:hover {
+  	@include transition;
+    background-color: $button_txt;
+    color: $button_bg;
+  }
+}
+//PureCSS Buttons
+@mixin button {
+	border-radius: 0;
+	background-color: $button_bg;
+	color: $button_txt;
+	white-space: normal;
+	font-family: $header_font;
+	&:hover, &:focus {
+		background-image: none;
+		background-color: $hover_button_bg;
+		color: $hover_button_txt;
+		@include transition;
+	}
+}
+.pure-button {
+	@include button
+}
+//Form Input
+@mixin input {
+	input,textarea {
+		&:not([type=submit]):not([type=file]):not([type=radio]) {
+			width: 100%;
+			padding: 0.5em;
+			-webkit-appearance: none;
+			border: 0;
+		}
+		&:active, &:focus {
+			outline: 0;
+		}
+
+        &.submit {
+            white-space: normal;
+        }
+    }
+}
+//Breakpoints for mobile
+/* Usage: easily set breakpoints for small, medium, and large screens
+Either pass the px number through individually, or set it as a variable */
+@mixin bp-large {
+  @media only screen and (max-width: $size-large) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: $size-medium) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: $size-small) {
+    @content;
+  }
+}
+// Add Gutters - include in any section you want to have gutters, such as the form
+@mixin gridGutters($grid-gutters) {
+	//Gutter Padding Method
+	.pure-g  div[class*="pure-u-"] {
+		@include border-box;
+		@include input;
+		padding: $grid-gutters;
+	}
+}
+//Mixin if you want equal-height columns
+@mixin flexGrid($gutter-border,$grid-bg) {
+	padding: 0;
+	border-width: $gutter-border;
+	border-color: $grid-bg;
+	border-style: solid;
+}
+//Flexbox
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+//Section Padding
+@mixin headerPadding($header-padding) {
+ #header {
+ 	padding: $header-padding;
+ }
+}
+@mixin bodyPadding($body-padding) {
+	#main {
+		padding: $body-padding;
+	}
+	@media screen and (max-width: $size-medium) {
+        #main {
+            padding: $body-padding-mobile;
+        }
+    }
+}
+@mixin footerPadding($footer-padding) {
+	#footer {
+		padding: $footer-padding;
+	}
+}

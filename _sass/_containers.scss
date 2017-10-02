@@ -1,0 +1,92 @@
+@import "mixins";
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+	width: 100%;
+}
+* {
+	@include border-box;
+}
+#wrapper {
+	min-height: 100%;
+	position:relative;
+}
+//Header
+#header {
+	@include header_colors;
+
+	h1, h2, h3, h4, h5 {
+		@include header_colors;
+	}
+}
+//PureCSS Grids
+/* fix for IE and Firefox responsiveness */
+.pure-g {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+.pure-g [class *= "pure-u"] {
+	font-family: $body-font;
+}
+.pure-g {
+	font-family: $body-font;
+}
+//BSD Form
+@include form_colors;
+.signup-form {
+	padding: 1em;
+	width: 100%;
+	@include input;
+	.pure-button {
+		text-transform: uppercase;
+		font-weight: bold;
+		width: 100%;
+	}
+}
+//Social Share
+.social-share {
+	width: 100%;
+	display: inline-block;
+	i {
+		font-size: 1.5em;
+	}
+	.fa-twitter {
+		margin-left: 1em;
+	}
+}
+//Footer
+#footer {
+	@include footer_colors;
+	text-align: center;
+	clear: both;
+	font-size: 7pt;
+	a, .copyright-text {
+        font-size: 0.75em;
+    }
+	a {
+	    color: $copyright_link;
+	    text-decoration: none;
+	    &:hover {
+	      color: $copyright_link_hover;
+	    }
+  	}
+
+	.copyright-footer {
+		border: 1px solid $footer_txt;
+		width: 75%;
+		margin: auto;
+		display: inline-block;
+		.copyright-text {
+			padding: 1em 2em;
+			p {
+				margin: 0;
+			}
+		}
+	}
+}
