@@ -81,9 +81,7 @@ $(document).ready(function() {
         var filterTag = tagInput.toLowerCase().replace("'","");
         $('.tag-list').removeClass('active');
         $('.tag-row').each(function() {
-            var tagRow = $(this).text().toLowerCase().replace("'","");
-            console.log(tagRow);
-            console.log(filterTag.indexOf(tagRow));
+            var tagRow = $(this).data('tag');
             if (tagRow.indexOf(filterTag) > -1) {
                 $(this).addClass('active');
             } else if (filterTag === "") {
