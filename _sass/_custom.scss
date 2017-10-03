@@ -4,7 +4,8 @@ $brand_lt_blue: #228ae6;
 $brand_dk_blue: #1c7cd6;
 $brand_alt_blue: #00589C;
 $brand_white: #fff;
-$brand_red: #E31818;
+$brand_red: #c92a2a;
+$brand_lt_red: #ffc9c9;
 $brand_dk_red: #841618;
 $brand_yellow: #FFDD00;
 $brand_orange: #F15822;
@@ -15,6 +16,7 @@ $brand_teal: #22b8cf;
 $brand_green: #40c057;
 $brand_purple: #A4288C;
 $brand_dk_purple: #4D2073;
+
 //Body and Heading text Colors
 $body_txt: $brand_black;
 $body_link: $brand_lt_blue;
@@ -187,6 +189,7 @@ $transition_type: all .7s ease;
             padding: 1em;
             .row {
                 padding-bottom: 1em;
+
             }
             .btn-col {
                 text-align: right;
@@ -238,7 +241,29 @@ $transition_type: all .7s ease;
                     background-color: $brand_gray;
                 }
 
+                &.no-results {
 
+                    display: none;
+                    .no-results-msg {
+                        background: $brand_lt_red;
+                        padding: 1em;
+                        color: $brand_red;
+                        font-weight: bold;
+                        border-radius: 4px;
+                        & > div {
+                            display: inline-block;
+                        }
+                        .close-no-results {
+                            color: darken($brand_lt_red, 15%);
+                            float: right;
+                            @include transition;
+                            &:hover {
+                                cursor: pointer;
+                                color: $brand_red;
+                            }
+                        }
+                    }
+                }
             }
             .tag-row {
                 opacity: 0;

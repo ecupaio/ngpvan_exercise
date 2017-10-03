@@ -81,8 +81,6 @@ $(document).ready(function() {
         $('.tag-list').removeClass('active');
         $('.tag-row').each(function() {
             var tagRow = $(this).data('tag');
-
-            console.log('row: '+tagRow);
             if (tagRow === filterTag) {
                 $(this).addClass('active');
             } else if (filterTag === "") {
@@ -91,17 +89,30 @@ $(document).ready(function() {
                 $(this).removeClass('active');
             }
         });
-
-        $('body,html').animate({
-            scrollTop: $('#results').offset().top
-        },'700');
-        if ($('.tag-row.active').length > -1) {
+        //no results
+        if ($('.tag-row.active').length > 0) {
             $('.no-results').slideUp();
         } else {
             $('.no-results').slideDown();
         }
+        $('body,html').animate({
+            scrollTop: $('#results').offset().top
+        },'700');
+
 
     });
+    //close no results
+    $('.close-no-results').click(function() {
+        $('.no-results').slideUp();
+        $('.tag-input').val('');
+        $('body,html').animate({
+            scrollTop: $('#filters').offset().top
+        },'700');
+        $('.tag-row').each(function() {
+            $(this).addClass('active');
+        });
+    });
+    //add required fields
     if ($('#main').hasClass('add-new')) {
         $('input,select,textarea').each(function() {
             if ($(this).attr('required')) {
