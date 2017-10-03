@@ -1,0 +1,77 @@
+<div id="add-tag-section" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="form-section">
+                    <h3>Activity Ration Details</h3>
+                </div>
+            </div>
+            <div class="col-12 col-md-9">
+                <div class="form-fields">
+                    <div class="form-field">
+                        <label>Description</label>
+                        <select class="form-control" required>
+                            <option value="one">One</option>
+                            <option value="two">Two</option>
+                            <option value="three">Three</option>
+                            <option value="four">Four</option>
+                            <option value="five">Five</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label>Activity Name</label>
+                        <input type="text" required class="input-element" />
+                    </div>
+                    <div class="form-field">
+                        <label>Activity Type</label><br>
+                        <input type="radio" name="activity-type" value="Fundraising" required> Fundraising<br>
+                        <input type="radio" name="activity-type" value="Direct Candidate Support"> Direct Candidate Support<br>
+                    </div>
+                    <div class="form-field">
+                        <label>Description</label>
+                        <select class="form-control">
+                            <option value="one">One</option>
+                            <option value="two">Two</option>
+                            <option value="three">Three</option>
+                            <option value="four">Four</option>
+                            <option value="five">Five</option>
+                        </select>
+                        <div>Only one source per transaction</div>
+                    </div>
+                    <div class="form-field">
+                        <label>Activity Name</label>
+                        <textarea rows="5" class="input-element" placeholder="Maximum of 4000 characters">
+                        </textarea>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-3">
+                <div class="form-section">
+                    <h3>Add an Initial Ratio Item</h3>
+                    <p>
+                        Provide the Federal/Non-Federal Allocation breakdown for this Activity. Revisions to this ratio may be added now or in the future.
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-md-9">
+                <div class="form-fields ratio">
+                    <div class="form-field">
+                        <label>Start Date</label>
+                        <input type="date" required class="input-element" />
+                    </div>
+                    <div class="form-field">
+                        <label>Federal %</label>
+                        <input type="number" required class="input-element" />
+                    </div>
+                    <div class="form-field">
+                        <label>Non-Federal %</label>
+                        <input type="number" required class="input-element" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

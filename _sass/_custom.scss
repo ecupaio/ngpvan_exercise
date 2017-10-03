@@ -11,8 +11,8 @@ $brand_orange: #F15822;
 $brand_gray: #f8f9fa;
 $brand_dk_gray: #ced4da;
 $brand_black: #495057;
-$brand_teal: #00a87d;
-$brand_green: #29763B;
+$brand_teal: #22b8cf;
+$brand_green: #40c057;
 $brand_purple: #A4288C;
 $brand_dk_purple: #4D2073;
 //Body and Heading text Colors
@@ -66,11 +66,121 @@ $transition_type: all .7s ease;
     background: $brand_gray;
 }
 #main {
+    &.tags {
+        .heading-logo {
+            background: $brand_teal;
+        }
+    }
+    &.add-new {
+        .heading-logo {
+            background: $brand_green;
+        }
+        .button-section {
+            display: none;
+        }
+    }
+
     .section {
         background: $brand_white;
+        margin: 1em 0;
+    }
+    .breadcrumbs {
+        a.crumb {
+            font-weight: normal;
+            color: $brand_lt_blue;
+            &.active {
+                color: $brand_black;
+            }
+        }
+        @include bp-small {
+            a.crumb {
+                display: block;
+                margin: 0.5em 0;
+            }
+            .crumb-separator {
+                display: none;
+            }
+        }
+    }
+    .page-heading {
+        .row {
+            padding-bottom: 0;
+            .col-12 {
+                padding: 0;
+            }
+        }
+        .heading-section {
+            //display: inline-block;
+            & > div {
+                display: inline-block;
+                vertical-align: middle;
+                padding: 0.5rem 0.75rem;
+            }
+            .heading-logo {
+                font-size: 1.5em;
+                color: $brand_white;
+
+                border-radius: 4px;
+                .glyphicons {
+                    margin-right: 0;
+                    vertical-align: bottom;
+                }
+            }
+            .heading-label {
+
+                .label-top {
+                    text-transform: uppercase;
+                }
+                .label-bottom {
+                    h2 {
+                        margin: 0;
+                        font-size: 2em;
+                    }
+                }
+            }
+        }
+        .button-section {
+
+            text-align: right;
+            &.col-12 {
+                padding: 0.75em 0;
+            }
+            @include bp-medium {
+                text-align: left;
+            }
+
+            & > div {
+                display: inline-block;
+                padding: 0.5em;
+                @include bp-medium {
+                    padding: 0.5em 0.5em 0.5em 0;
+                }
+                .btn {
+                    margin-bottom: 0;
+                }
+                .form-control {
+                    min-width: 150px;
+                    @include bp-medium {
+                        min-width: 0px;
+                    }
+                }
+            }
+        }
+        .button-section,.heading-section {
+            @include bp-medium {
+                display: block;
+                float: none;
+            }
+        }
+
+
     }
     #filters {
         .filter-grid {
+            padding: 1em;
+            .row {
+                padding-bottom: 1em;
+            }
             .btn-col {
                 text-align: right;
                 .btn {
@@ -95,6 +205,7 @@ $transition_type: all .7s ease;
                         padding: 0.5em 0;
                         &:hover {
                             background: $brand_gray;
+                            cursor: pointer;
                         }
                     }
                 }
@@ -137,8 +248,52 @@ $transition_type: all .7s ease;
                 .tag-name {
                     color: $brand_lt_blue;
                 }
+                .col-label {
+                    display: none;
+                    @include bp-medium{
+                        display: inline-block;
+                        color: $brand_dk_blue;
+                        font-weight: bold;
+                        padding-right: 0.25em;
+                    }
+                }
             }
         }
+    }
+    #add-tag-section {
+        .form-fields {
+            padding: 1em;
 
+            .form-field {
+                margin-bottom: 1.5em;
+                input, select {
+                    max-width: 500px;
+                }
+                input[type="radio"] {
+                    margin: 0.5em;
+                }
+
+            }
+            &.ratio {
+                .form-field {
+                    input, select {
+                        max-width: 300px;
+                    }
+                }
+            }
+        }
+        .form-section {
+            padding: 1em;
+        }
+        .row {
+            border-bottom: 3px solid $brand_gray;
+            margin: 0 1em;
+        }
+        .required {
+            color: $brand_red;
+        }
+    }
+    .container {
+        max-width: 100%;
     }
 }

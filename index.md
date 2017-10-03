@@ -2,8 +2,7 @@
 title: Tags
 layout: index
 icon: glyphicons-tags
-heading-top: Admin
-heading-bottom: Tags
+label-top: Admin
+label-bottom: Tags
 ---
-
 {% include tags.html %}

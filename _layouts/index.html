@@ -40,23 +40,56 @@
     <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 </head>
 <body>
-    
+
     <div id="wrapper">
         <div id="header">
         </div>
-        <div id="main" class="{{ page.title | handleize }}">
-            <div class="page-heading">
-                <div class="heading-logo">
-                    <span class="glyphicons {{ page.icon }}" aria-hidden="true"></span>
-                </div>
-                <div class="heading-label">
-                    <div class="label-top">{{ page.label-top }}</div>
-                    <div class="label-bottom">{{ page.label-bottom }}</div>
+
+        <div id="main" class="{{ page.title | downcase | replace: ' ', '-' }}">
+            <div class="breadcrumbs">
+                {% if page.title == 'Tags' %}
+                <a class="crumb"> Main Menu </a><span class="crumb-separator">/</span><a class="crumb active"> Tags </a>
+                {% else %}
+                <a class="crumb"> Main Menu </a><span class="crumb-separator">/</span><a class="crumb"> H &amp; L Manager </a><span class="crumb-separator">/</span><a class="crumb active">Add New activity Ratio</a>
+                {% endif %}
+            </div>
+            <div class="page-heading container">
+                <div class="row">
+                    <div class="heading-section col-12 col-md-6">
+
+                            <div class="heading-logo">
+                                <span class="glyphicons {{ page.icon }}" aria-hidden="true"></span>
+                            </div>
+                            <div class="heading-label">
+                                <div class="label-top">{{ page.label-top }}</div>
+                                <div class="label-bottom"><h2>{{ page.label-bottom }}</h2></div>
+                            </div>
+
+                    </div>
+                    <div class="button-section col-12 col-md-6">
+                        <div>
+                            <select class="form-control">
+                                <option value="one">One</option>
+                                <option value="two">Two</option>
+                                <option value="three">Three</option>
+                                <option value="four">Four</option>
+                                <option value="five">Five</option>
+                            </select>
+                        </div>
+                        <div>
+                            <a class="btn btn-primary" href="{{ base }}/add-new.html">Add New Tag</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {% include tags.html %}
+            {% if page.title == 'Tags' %}
+                {% include tags.html %}
+            {% else %}
+                {% include add-new.html %}
+            {% endif %}
         </div>
     </div>
     <!-- Scripts -->
     <script src="{{ base }}/site_functions.js"></script>
 </body>
+</html>
