@@ -79,6 +79,9 @@ $transition_type: all .7s ease;
         }
         .button-section {
             display: none;
+            @include bp-medium {
+
+            }
         }
         .btn-row {
             text-align: right;
@@ -182,12 +185,7 @@ $transition_type: all .7s ease;
                 }
             }
         }
-        .button-section,.heading-section {
-            @include bp-medium {
-                display: block;
-                float: none;
-            }
-        }
+        
 
 
     }
