@@ -13,9 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Single Page Template
-description: site description
-meta_img: https://uploads.democrats.org/Dev_assets/facebook_D_logo.png
+title: NGP-VAN Exercise
+description: This exercise was crafted by Ed Cupaioli
+meta_img: 
 url: # the base hostname & protocol for your site, e.g. http://example.com
 timezone: America/New York
 future: true

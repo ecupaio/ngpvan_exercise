@@ -79,6 +79,13 @@ $transition_type: all .7s ease;
             display: none;
         }
     }
+    .form-control, .input-element {
+        &:focus {
+            @include transition;
+            border-color: $brand_dk_blue;
+
+        }
+    }
 
     .section {
         background: $brand_white;
