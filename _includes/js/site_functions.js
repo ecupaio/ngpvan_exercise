@@ -4,6 +4,7 @@ $(document).ready(function() {
     var tagName;
     var tagItem;
     var tagDescription;
+    //Get Tags
     $.ajax({
         url: tagsJSON,
         method: "GET",
@@ -24,7 +25,7 @@ $(document).ready(function() {
                             "<div class='col-12 col-md-2'><span class='col-label'>Owner Committee: </span>"+data[i].owner+"</div>"+
                             "<div class='col-12 col-md-1'><span class='col-label'>Created By: </span>"+data[i].created+"</div>"+
                             "<div class='col-12 col-md-1'><span class='col-label'>Date Created: </span>"+data[i].date+"</div>"+
-                            "<div class='col-12 col-md-2'><span class='col-label'>Description: </span>"+tagDescription+"</div>"+
+                            "<div class='col-12 col-md-3'><span class='col-label'>Description: </span>"+tagDescription+"</div>"+
                         "</div>";
                 $('.results-grid').append(tagRow);
                 //Populate Tag Filter
@@ -32,8 +33,8 @@ $(document).ready(function() {
                 $('.tag-list').append(tagItem);
 
             }
+            //Filter list click functions
             $('.filter-item').click(function(){
-
                 var tagInput = $(this).text();
                 $('.tag-input').val(tagInput);
                 $('.tag-list').removeClass('active');
@@ -120,9 +121,4 @@ $(document).ready(function() {
             }
         });
     }
-
-
-
-
-
 });
