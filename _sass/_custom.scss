@@ -80,6 +80,13 @@ $transition_type: all .7s ease;
         .button-section {
             display: none;
         }
+        .btn-row {
+            text-align: right;
+            .btn {
+                display: inline-block;
+                margin-left: 0.5em;
+            }
+        }
     }
     .form-control, .input-element {
         &:focus {
@@ -195,6 +202,7 @@ $transition_type: all .7s ease;
                 text-align: right;
                 .btn {
                     display: inline-block;
+                    margin-left: 1em;
                 }
             }
             .tag-list {
