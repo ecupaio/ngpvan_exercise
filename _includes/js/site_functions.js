@@ -13,7 +13,7 @@ $(document).ready(function() {
             for (var i = 0; i < data.length; i++) {
                 tagName = data[i].name;
                 if (data[i].description !== "") {
-                    tagDescription = data[i].description.substring(0, 25) + '...';
+                    tagDescription = data[i].description.substring(0, 50) + '...';
                 } else {
                     tagDescription = data[i].description;
                 }
